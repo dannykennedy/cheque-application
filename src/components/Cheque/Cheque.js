@@ -77,13 +77,18 @@ function Cheque({ amount, amountInWords, payeeName, date, drawer }) {
                     </div>
                     <div className="cheque-numeric-amount-area">
                         <div className="cheque-numeric-amount">
-                            <SplitText
-                                initialPose="exit"
-                                pose="enter"
-                                charPoses={charPoses}
-                            >
-                                {amount.toString()}
-                            </SplitText>
+                            <div>
+                                <span>$</span>
+                            </div>
+                            <div className="cheque-numeric-amount-text">
+                                <SplitText
+                                    initialPose="exit"
+                                    pose="enter"
+                                    charPoses={charPoses}
+                                >
+                                    {amount.toString()}
+                                </SplitText>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +104,7 @@ function Cheque({ amount, amountInWords, payeeName, date, drawer }) {
                     </div>
                 </div>
             </div>
-            <img src={ChequePic} alt="cheque" />
+            {/* <img src={ChequePic} alt="cheque" /> */}
         </div>
     );
 }

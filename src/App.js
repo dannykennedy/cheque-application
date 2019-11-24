@@ -8,9 +8,9 @@ function App() {
             <Cheque
                 amount={100}
                 amountInWords={"One hundred dollars"}
-                payeeName={"Dan Kennedy"}
+                payeeName={"Wikimedia Foundation"}
                 date={new Date()}
-                drawer={"Mr Boss Man"}
+                drawer={"John Jones"}
             />
         </div>
     );
