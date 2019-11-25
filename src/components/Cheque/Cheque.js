@@ -36,13 +36,15 @@ export function Cheque({
                         </div>
                     </div>
                     <div className="cheque-date-area">
-                        <span className="cheque-text">Date: </span>
-                        <span className="cheque-date">
-                            <AnimatedText
-                                text={formatDate(date)}
-                                testing={testing}
-                            />
-                        </span>
+                        <div className="cheque-date-row">
+                            <span className="cheque-text">Date: </span>
+                            <div className="cheque-date">
+                                <AnimatedText
+                                    text={formatDate(date)}
+                                    testing={testing}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="cheque-body">
@@ -75,7 +77,7 @@ export function Cheque({
                             </div>
                             <div className="cheque-numeric-amount-text">
                                 <AnimatedText
-                                    text={amount.toString()}
+                                    text={Number.parseFloat(amount).toFixed(2)}
                                     testing={testing}
                                 />
                             </div>

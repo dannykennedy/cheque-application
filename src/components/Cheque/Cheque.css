@@ -32,6 +32,20 @@
     grid-template-columns: 65% 35%;
 }
 
+.cheque-date-area {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cheque-date-row {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+}
+
 .cheque-numeric-amount-area {
     display: grid;
     justify-items: center;
