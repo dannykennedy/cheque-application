@@ -1,6 +1,7 @@
 #form-wrapper {
     width: 90%;
     margin: auto;
+    margin-top: 50px;
 }
 
 #form {
@@ -9,7 +10,12 @@
 }
 
 .form-warning {
+    margin: 5px;
     color: orange;
+}
+
+.form-button-submit {
+    margin-top: 20px;
 }
 
 @media (min-width: 800px) {

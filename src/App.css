@@ -39,4 +39,5 @@ button {
     text-align: left;
     text-decoration: none;
     width: fit-content;
+    margin: auto;
 }

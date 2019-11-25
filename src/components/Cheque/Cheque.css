@@ -61,7 +61,8 @@
 .cheque-signature-area {
     font-family: "adobe-handwriting-tiffany", cursive;
     color: black;
-    font-size: 1.2em;
+    font-size: 1em;
+    height: 1.5em;
 }
 
 .cheque-payee-name,
@@ -92,6 +93,13 @@
 
 .cheque-signature-area {
     justify-self: right;
+}
+
+.new-cheque-button-wrapper {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 @media (min-width: 800px) {

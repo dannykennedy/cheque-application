@@ -8,6 +8,7 @@ import {
     setDate as _setDate,
     setPayee as _setPayee,
     setSubmitted as _setSubmitted,
+    getAmountString as _getAmountString,
 } from "../../ducks";
 
 const MAX_CHEQUE_AMOUNT = 10000000000000;
@@ -22,19 +23,37 @@ function Form({
     setPayee,
     setDate,
     setSubmitted,
+    getAmountString,
 }) {
     const [amountWarning, setAmountWarning] = useState("");
+    const [payeeWarning, setPayeeWarning] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
-        alert("You submitted the form");
-        setPayee(payee);
-        setAmount(amount);
-        setDate(date);
-        setSubmitted(true);
+        if (payee === "") {
+            setPayeeWarning("Please enter a payee");
+        }
+        console.log("amount", amount);
+        console.log("payee", payee);
+
+        if (!amount) {
+            setAmountWarning("Amount cannot be blank");
+        }
+
+        if (checkValidAmount(amount).isValid && payee !== "") {
+            setPayee(payee);
+            setAmount(amount);
+            setDate(date);
+            setSubmitted(true);
+            getAmountString(amount);
+        }
     };
 
     const checkValidAmount = amountString => {
+        if (!amountString) {
+            return { isValid: false, alert: "Amount cannot be blank" };
+        }
+
         if (isNaN(amountString)) {
             return { isValid: false, alert: "Please enter numbers only" };
         } else {
@@ -57,15 +76,17 @@ function Form({
     return (
         <div id="form-wrapper">
             <form id="form">
+                <div className="form-warning">{payeeWarning}</div>
                 <input
-                    placeholder="payee"
+                    placeholder="Payee"
                     onChange={e => {
                         setPayee(e.target.value);
+                        setPayeeWarning("");
                     }}
                 ></input>
-                <div class="form-warning">{amountWarning}</div>
+                <div className="form-warning">{amountWarning}</div>
                 <input
-                    placeholder="amount"
+                    placeholder="Amount"
                     onChange={e => {
                         const check = checkValidAmount(e.target.value);
                         if (check.isValid) {
@@ -76,8 +97,9 @@ function Form({
                             setAmountWarning(check.alert);
                         }
                     }}
-                    value={amount}
+                    value={amount || ""}
                 ></input>
+                <div className="form-warning"></div>
                 <DatePicker
                     selected={date}
                     // onSelect={this.handleSelect} //when day is clicked
@@ -85,7 +107,11 @@ function Form({
                         setDate(e);
                     }}
                 />
-                <button type="submit" onClick={handleSubmit}>
+                <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="form-button-submit"
+                >
                     Submit
                 </button>
             </form>
@@ -108,6 +134,7 @@ const mapDispatchToProps = {
     setDate: _setDate,
     setPayee: _setPayee,
     setSubmitted: _setSubmitted,
+    getAmountString: _getAmountString,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
