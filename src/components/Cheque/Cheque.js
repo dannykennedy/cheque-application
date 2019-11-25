@@ -1,9 +1,9 @@
 import React from "react";
 import FontAwesome from "react-fontawesome";
 import "./Cheque.css";
-import ChequePic from "./BritishChequeAnnotated.png";
 import { formatDate } from "../../modules/formatDate";
 import SplitText from "react-pose-text";
+import Logo from "../Logo";
 
 // Full React Pose Text documentation can be found at
 // https://popmotion.io/pose/api/react-pose-text
@@ -22,14 +22,7 @@ function Cheque({ amount, amountInWords, payeeName, date, drawer }) {
             <div className="cheque">
                 <div className="cheque-header">
                     <div className="cheque-logo-area">
-                        <div className="cheque-logo">
-                            <div className="cheque-logo-icon">
-                                <FontAwesome name="hand-holding-usd" />
-                            </div>
-                            <div className="cheque-bank-name">
-                                First Bank of SmartCorp
-                            </div>
-                        </div>
+                        <Logo />
                         <div className="cheque-branch-name cheque-text">
                             Castle Hill Branch
                         </div>

@@ -1,0 +1,16 @@
+#form-wrapper {
+    width: 90%;
+    margin: auto;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 800px) {
+    #form-wrapper {
+        width: 50%;
+        max-width: 500px;
+    }
+}
