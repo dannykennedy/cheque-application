@@ -5,20 +5,12 @@ import Navbar from "./components/Navbar";
 import { connect } from "react-redux";
 import "./App.css";
 
-function App({ isSubmitted, amount, date, payee }) {
+export function App({ isSubmitted }) {
     return (
         <div className="App">
             <Navbar />
             {!isSubmitted && <Form />}
-            {isSubmitted && (
-                <Cheque
-                    amount={amount}
-                    amountInWords={"One hundred dollars"}
-                    payeeName={payee}
-                    date={date}
-                    drawer={"John Jones"}
-                />
-            )}
+            {isSubmitted && <Cheque drawer={"John Jones"} />}
         </div>
     );
 }
@@ -27,9 +19,6 @@ function App({ isSubmitted, amount, date, payee }) {
 const mapStateToProps = state => {
     return {
         isSubmitted: state.isSubmitted,
-        amount: state.amount,
-        date: state.date,
-        payee: state.payee,
     };
 };
 

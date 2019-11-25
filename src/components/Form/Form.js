@@ -16,7 +16,7 @@ const MAX_CHEQUE_AMOUNT = 10000000000000;
 
 // Ask the user for payee, amount in dollars and a date.
 // Amount must be numeric, greater than 0, and smaller than 10000000000000. Date must be a valid date.
-function Form({
+export function Form({
     amount,
     date,
     payee,
@@ -34,13 +34,9 @@ function Form({
         if (payee === "") {
             setPayeeWarning("Please enter a payee");
         }
-        console.log("amount", amount);
-        console.log("payee", payee);
-
         if (!amount) {
             setAmountWarning("Amount cannot be blank");
         }
-
         if (checkValidAmount(amount).isValid && payee !== "") {
             setPayee(payee);
             setAmount(amount);

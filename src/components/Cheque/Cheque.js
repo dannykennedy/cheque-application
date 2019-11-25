@@ -1,9 +1,9 @@
 import React from "react";
 import "./Cheque.css";
 import { formatDate } from "../../modules/formatDate";
-import SplitText from "react-pose-text";
 import Logo from "../Logo";
 import Spinner from "../Spinner";
+import AnimatedText from "../AnimatedText";
 import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -13,20 +13,9 @@ import {
     setSubmitted as _setSubmitted,
 } from "../../ducks";
 
-// Full React Pose Text documentation can be found at
-// https://popmotion.io/pose/api/react-pose-text
-const charPoses = {
-    exit: { opacity: 0, y: -2 },
-    enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({ charIndex }) => charIndex * 50,
-    },
-};
-
-function Cheque({
+export function Cheque({
     amount,
-    payeeName,
+    payee,
     date,
     drawer,
     setSubmitted,
@@ -34,6 +23,7 @@ function Cheque({
     setAmount,
     setDate,
     amountString,
+    testing,
 }) {
     return (
         <div>
@@ -48,13 +38,10 @@ function Cheque({
                     <div className="cheque-date-area">
                         <span className="cheque-text">Date: </span>
                         <span className="cheque-date">
-                            <SplitText
-                                initialPose="exit"
-                                pose="enter"
-                                charPoses={charPoses}
-                            >
-                                {formatDate(date)}
-                            </SplitText>
+                            <AnimatedText
+                                text={formatDate(date)}
+                                testing={testing}
+                            />
                         </span>
                     </div>
                 </div>
@@ -63,26 +50,17 @@ function Cheque({
                         <div className="cheque-text-payee-area">
                             <span className="cheque-text">Pay:</span>
                             <div className="cheque-payee-name">
-                                <SplitText
-                                    initialPose="exit"
-                                    pose="enter"
-                                    charPoses={charPoses}
-                                >
-                                    {payeeName}
-                                </SplitText>
+                                <AnimatedText text={payee} testing={testing} />
                             </div>
                         </div>
                         <div className="cheque-text-amount-area">
                             <div className="cheque-text-amount">
                                 <span>
                                     {amountString ? (
-                                        <SplitText
-                                            initialPose="exit"
-                                            pose="enter"
-                                            charPoses={charPoses}
-                                        >
-                                            {amountString + " only"}
-                                        </SplitText>
+                                        <AnimatedText
+                                            text={amountString + " only"}
+                                            testing={testing}
+                                        />
                                     ) : (
                                         <Spinner height={"20px"} />
                                     )}
@@ -96,26 +74,17 @@ function Cheque({
                                 <span>$</span>
                             </div>
                             <div className="cheque-numeric-amount-text">
-                                <SplitText
-                                    initialPose="exit"
-                                    pose="enter"
-                                    charPoses={charPoses}
-                                >
-                                    {amount.toString()}
-                                </SplitText>
+                                <AnimatedText
+                                    text={amount.toString()}
+                                    testing={testing}
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="cheque-footer">
                     <div className="cheque-signature-area">
-                        <SplitText
-                            initialPose="exit"
-                            pose="enter"
-                            charPoses={charPoses}
-                        >
-                            {drawer}
-                        </SplitText>
+                        <AnimatedText text={drawer} testing={testing} />
                     </div>
                 </div>
             </div>
@@ -131,7 +100,6 @@ function Cheque({
                     Write another cheque
                 </button>
             </div>
-            {/* <img src={ChequePic} alt="cheque" /> */}
         </div>
     );
 }
@@ -140,6 +108,9 @@ function Cheque({
 const mapStateToProps = state => {
     return {
         amountString: state.amountString,
+        date: state.date,
+        amount: state.amount,
+        payee: state.payee,
     };
 };
 
