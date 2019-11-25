@@ -1,5 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Cheque snapshot test 1`] = `
+<div>
+  <div
+    className="cheque"
+  >
+    <div
+      className="cheque-header"
+    >
+      <div
+        className="cheque-logo-area"
+      >
+        <div
+          className="logo-wrapper"
+        >
+          <div
+            className="logo-icon"
+          >
+            <span
+              aria-hidden={true}
+              className="fa fa-hand-holding-usd"
+            />
+          </div>
+          <div
+            className="logo-bank-name"
+          >
+            First Bank of SmartCorp
+          </div>
+        </div>
+        <div
+          className="cheque-branch-name cheque-text"
+        >
+          Castle Hill Branch
+        </div>
+      </div>
+      <div
+        className="cheque-date-area"
+      >
+        <div
+          className="cheque-date-row"
+        >
+          <span
+            className="cheque-text"
+          >
+            Date: 
+          </span>
+          <div
+            className="cheque-date"
+          >
+            <div>
+              <div>
+                25/11/2019
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="cheque-body"
+    >
+      <div
+        className="cheque-text-area"
+      >
+        <div
+          className="cheque-text-payee-area"
+        >
+          <span
+            className="cheque-text"
+          >
+            Pay:
+          </span>
+          <div
+            className="cheque-payee-name"
+          >
+            <div>
+              <div>
+                Dan Kennedy
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="cheque-text-amount-area"
+        >
+          <div
+            className="cheque-text-amount"
+          >
+            <span>
+              <div>
+                <img
+                  alt="loading"
+                  className="loading-notice-spinner"
+                  height="20px"
+                  src="./images/loading.gif"
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "display": "inline-block",
+                    }
+                  }
+                  width="auto"
+                />
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="cheque-numeric-amount-area"
+      >
+        <div
+          className="cheque-numeric-amount"
+        >
+          <div>
+            <span>
+              $
+            </span>
+          </div>
+          <div
+            className="cheque-numeric-amount-text"
+          >
+            <div>
+              <div>
+                45.00
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="cheque-footer"
+    >
+      <div
+        className="cheque-signature-area"
+      >
+        <div>
+          <div>
+            John Jones
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="new-cheque-button-wrapper"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Write another cheque
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Tag snapshot test 1`] = `
 <div>
   <div

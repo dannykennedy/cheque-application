@@ -2,7 +2,7 @@ import renderer from "react-test-renderer";
 import React from "react";
 import { Cheque } from "./Cheque";
 
-test("Tag snapshot test", () => {
+test("Cheque snapshot test", () => {
     const component = renderer.create(
         <Cheque
             drawer={"John Jones"}

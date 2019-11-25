@@ -1,5 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Form snapshot test 1`] = `
+<div
+  id="form-wrapper"
+>
+  <form
+    id="form"
+  >
+    <div
+      className="form-warning"
+    >
+      
+    </div>
+    <div
+      className="form-input-section"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-user form-icon"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Payee"
+      />
+    </div>
+    <div
+      className="form-warning"
+    >
+      
+    </div>
+    <div
+      className="form-input-section"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-dollar-sign form-icon"
+      />
+      <input
+        onChange={[Function]}
+        placeholder="Amount"
+        value=""
+      />
+    </div>
+    <div
+      className="form-warning"
+    />
+    <div
+      className="form-input-section"
+    >
+      <span
+        aria-hidden={true}
+        className="fa fa-calendar-alt form-icon"
+      />
+      <div
+        className="react-datepicker-wrapper"
+      >
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className=""
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      className="form-button-submit"
+      onClick={[Function]}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
 exports[`Tag snapshot test 1`] = `
 <div
   id="form-wrapper"
