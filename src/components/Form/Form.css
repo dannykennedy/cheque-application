@@ -10,12 +10,22 @@
 }
 
 .form-warning {
-    margin: 5px;
+    margin: 5px 0px 5px 25px;
     color: orange;
 }
 
 .form-button-submit {
     margin-top: 20px;
+}
+
+.form-input-section {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+}
+
+.form-icon {
+    color: #3f4247;
 }
 
 @media (min-width: 800px) {

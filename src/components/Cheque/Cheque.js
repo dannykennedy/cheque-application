@@ -3,6 +3,7 @@ import "./Cheque.css";
 import { formatDate } from "../../modules/formatDate";
 import SplitText from "react-pose-text";
 import Logo from "../Logo";
+import Spinner from "../Spinner";
 import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -74,7 +75,7 @@ function Cheque({
                         <div className="cheque-text-amount-area">
                             <div className="cheque-text-amount">
                                 <span>
-                                    {amountString && (
+                                    {amountString ? (
                                         <SplitText
                                             initialPose="exit"
                                             pose="enter"
@@ -82,6 +83,8 @@ function Cheque({
                                         >
                                             {amountString + " only"}
                                         </SplitText>
+                                    ) : (
+                                        <Spinner height={"20px"} />
                                     )}
                                 </span>
                             </div>

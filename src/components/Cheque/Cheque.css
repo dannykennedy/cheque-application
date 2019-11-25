@@ -61,7 +61,20 @@
 .cheque-signature-area {
     font-family: "adobe-handwriting-tiffany", cursive;
     color: black;
+}
+
+.cheque-payee-name,
+.cheque-date,
+.cheque-numeric-amount,
+.cheque-signature-area {
+    font-size: 1.2em;
+}
+
+.cheque-numeric-amount-text {
     font-size: 1em;
+}
+
+.cheque-signature-area {
     height: 1.5em;
 }
 

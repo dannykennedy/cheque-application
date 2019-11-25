@@ -10,6 +10,7 @@ import {
     setSubmitted as _setSubmitted,
     getAmountString as _getAmountString,
 } from "../../ducks";
+import FontAwesome from "react-fontawesome";
 
 const MAX_CHEQUE_AMOUNT = 10000000000000;
 
@@ -77,36 +78,45 @@ function Form({
         <div id="form-wrapper">
             <form id="form">
                 <div className="form-warning">{payeeWarning}</div>
-                <input
-                    placeholder="Payee"
-                    onChange={e => {
-                        setPayee(e.target.value);
-                        setPayeeWarning("");
-                    }}
-                ></input>
+                <div className="form-input-section">
+                    <FontAwesome name="user" className="form-icon" />
+                    <input
+                        placeholder="Payee"
+                        onChange={e => {
+                            setPayee(e.target.value);
+                            setPayeeWarning("");
+                        }}
+                    ></input>
+                </div>
                 <div className="form-warning">{amountWarning}</div>
-                <input
-                    placeholder="Amount"
-                    onChange={e => {
-                        const check = checkValidAmount(e.target.value);
-                        if (check.isValid) {
-                            setAmount(e.target.value);
-                            setAmountWarning("");
-                        } else {
-                            setAmount(e.target.value);
-                            setAmountWarning(check.alert);
-                        }
-                    }}
-                    value={amount || ""}
-                ></input>
+                <div className="form-input-section">
+                    <FontAwesome name="dollar-sign" className="form-icon" />
+                    <input
+                        placeholder="Amount"
+                        onChange={e => {
+                            const check = checkValidAmount(e.target.value);
+                            if (check.isValid) {
+                                setAmount(e.target.value);
+                                setAmountWarning("");
+                            } else {
+                                setAmount(e.target.value);
+                                setAmountWarning(check.alert);
+                            }
+                        }}
+                        value={amount || ""}
+                    ></input>
+                </div>
                 <div className="form-warning"></div>
-                <DatePicker
-                    selected={date}
-                    // onSelect={this.handleSelect} //when day is clicked
-                    onChange={e => {
-                        setDate(e);
-                    }}
-                />
+                <div className="form-input-section">
+                    <FontAwesome name="calendar-alt" className="form-icon" />
+                    <DatePicker
+                        selected={date}
+                        // onSelect={this.handleSelect} //when day is clicked
+                        onChange={e => {
+                            setDate(e);
+                        }}
+                    />
+                </div>
                 <button
                     type="submit"
                     onClick={handleSubmit}
