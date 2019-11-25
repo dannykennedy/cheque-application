@@ -1,22 +1,37 @@
 import React, { useState } from "react";
 import "./Form.css";
 import DatePicker from "react-datepicker";
+import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
+import {
+    setAmount as _setAmount,
+    setDate as _setDate,
+    setPayee as _setPayee,
+    setSubmitted as _setSubmitted,
+} from "../../ducks";
 
 const MAX_CHEQUE_AMOUNT = 10000000000000;
 
 // Ask the user for payee, amount in dollars and a date.
 // Amount must be numeric, greater than 0, and smaller than 10000000000000. Date must be a valid date.
-function Form() {
-    const [payee, setPayee] = useState("");
-    const [amount, setAmount] = useState("");
+function Form({
+    amount,
+    date,
+    payee,
+    setAmount,
+    setPayee,
+    setDate,
+    setSubmitted,
+}) {
     const [amountWarning, setAmountWarning] = useState("");
-    const [date, setDate] = useState(new Date());
-    const [dateInputFocused, setDateInputFocused] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
         alert("You submitted the form");
+        setPayee(payee);
+        setAmount(amount);
+        setDate(date);
+        setSubmitted(true);
     };
 
     const checkValidAmount = amountString => {
@@ -48,7 +63,7 @@ function Form() {
                         setPayee(e.target.value);
                     }}
                 ></input>
-                <div>{amountWarning}</div>
+                <div class="form-warning">{amountWarning}</div>
                 <input
                     placeholder="amount"
                     onChange={e => {
@@ -74,11 +89,25 @@ function Form() {
                     Submit
                 </button>
             </form>
-            <div>{payee}</div>
-            <div>{amount}</div>
-            <div>{date.toString()}</div>
         </div>
     );
 }
 
-export default Form;
+// These parts of state are passed in as props
+const mapStateToProps = state => {
+    return {
+        isSubmitted: state.isSubmitted,
+        amount: state.amount,
+        date: state.date,
+        payee: state.payee,
+    };
+};
+
+const mapDispatchToProps = {
+    setAmount: _setAmount,
+    setDate: _setDate,
+    setPayee: _setPayee,
+    setSubmitted: _setSubmitted,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

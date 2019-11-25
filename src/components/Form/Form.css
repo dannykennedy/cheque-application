@@ -8,6 +8,10 @@
     flex-direction: column;
 }
 
+.form-warning {
+    color: orange;
+}
+
 @media (min-width: 800px) {
     #form-wrapper {
         width: 50%;
